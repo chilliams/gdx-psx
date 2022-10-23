@@ -12,6 +12,6 @@ gl_Position = snapPosition(gl_Position, gdxpsxResolution);
 #ifdef GDXPSX_RESOLUTION_SNAP_JITTER
 vec2 gdxpsxResolution = vec2($VEC0);
 float gdxpsxCamDist = clamp(gl_Position.w, -1.0, 1000.0);
-gl_Position.xy = round(gl_Position.xy * (gdxpsxResolution / gdxpsxCamDist)) / (gdxpsxResolution / gdxpsxCamDist);
+gl_Position.xy = floor(gl_Position.xy * (gdxpsxResolution / gdxpsxCamDist) + 0.5) / (gdxpsxResolution / gdxpsxCamDist);
 #endif
 //[gdx-psx end]
